@@ -32,7 +32,7 @@ const App = (props) => {
         <Route exact path="/findcouple">
           <FindCouple />
         </Route>
-        <Route exact path="/coupledetails">
+        <Route exact path="/coupledetails/:coupleId">
           <CoupleDetails />
         </Route>
       </Switch>

@@ -57,16 +57,13 @@ const getCouple = async (req, res) => {
   await client.connect();
 
   const db = client.db();
-  const coupleEmail = req.params.email;
-  const result = await db
-    .collection("couple")
-    .findOne({ coupleEmail: coupleEmail });
+  const id = req.params.id;
+  console.log(id);
+  const result = await db.collection("couple").findOne({ coupleId: id });
 
   result
-    ? res.status(200).json({ status: 200, coupleEmail, data: result })
-    : res
-        .status(404)
-        .json({ status: 404, coupleEmail, data: "couple not found" });
+    ? res.status(200).json({ status: 200, id, data: result })
+    : res.status(404).json({ status: 404, id, data: "couple not found" });
 
   client.close();
 };

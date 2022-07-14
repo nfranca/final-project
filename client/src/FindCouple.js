@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import mrmrsbeach from "./assets/mrmrsbeach.jpeg";
 import SingleCoupleComponent from "./components/SingleCoupleComponent";
+import { useHistory } from "react-router-dom";
 
 const FindCouple = () => {
+  const history = useHistory();
   const [allCouple, setAllCouple] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
   const [searchResults, setSearchResults] = useState();
@@ -40,14 +42,14 @@ const FindCouple = () => {
           <form onSubmit={submitHandler}>
             <input
               type="text"
-              placeholder="bride's firstName"
+              placeholder="Bride First Name"
               onChange={(e) => {
                 setSearchInput({ ...searchInput, bride: e.target.value });
               }}
             />
             <input
               type="text"
-              placeholder="groom's firstName"
+              placeholder="Groom First Name"
               onChange={(e) => {
                 setSearchInput({ ...searchInput, groom: e.target.value });
               }}
@@ -66,9 +68,13 @@ const FindCouple = () => {
         {isSearched &&
           searchResults.map((couple) => {
             return (
-              <StyledSingleCoupleComponent>
+              <StyledSingleCoupleComponent
+                key={couple._id}
+                onClick={() => {
+                  history.push(`/coupledetails/${couple.coupleId}`);
+                }}
+              >
                 <SingleCoupleComponent
-                  key={couple._id}
                   brideFirstName={couple.brideFirstName}
                   brideLastName={couple.brideLastName}
                   groomFirstName={couple.groomFirstName}
@@ -98,15 +104,15 @@ const FindCouple = () => {
 const BackgroundImg = styled.div`
   overflow-y: hidden;
   height: 70vh;
-  width: 70vw;
+  width: 96vw;
   p {
     margin-right: 10px;
   }
 
   img {
     margin: 0rem auto;
-    width: 100%;
-    height: 90vh;
+    width: 100vw;
+    height: 80vh;
   }
 `;
 
@@ -126,24 +132,25 @@ const StyledSearch = styled.div`
     background: none;
     border: none;
     margin: 1rem 0rem;
-    border: 2px solid lightgray;
+    border: 2px solid #bba14f;
     padding: 1rem;
+    text-align: center;
 
     border-radius: 2rem;
     margin-left: 2rem;
   }
   button {
     width: 75%;
-    color: black;
-    background: lightblue;
+    color: white;
+    background: #bba14f;
     border: none;
     border-radius: 2rem;
     padding: 1rem;
     margin-left: 1.9rem;
     cursor: pointer;
     &:disabled {
-      background: gray;
-      color: red;
+      background: lightgray;
+      color: white;
       cursor: not-allowed;
     }
   }

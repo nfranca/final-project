@@ -1,8 +1,8 @@
 const SingleCoupleComponent = ({ brideFirstName, groomFirstName }) => {
   return (
     <div>
-      <p>brideFirstName: {brideFirstName}</p>
-      <p>groomFirstName: {groomFirstName}</p>
+      <p>Bride First Name: {brideFirstName}</p>
+      <p>Groom First Name: {groomFirstName}</p>
     </div>
   );
 };

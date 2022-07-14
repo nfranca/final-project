@@ -15,7 +15,7 @@ express()
   .delete("/delete-account", deleteCouple)
   .patch('/manage-registry', updateCouple) //6
   .get("/search", getAllCouple) //2
-  .get("/search/:email", getCouple) //3
+  .get("/get-couple/:id", getCouple) //3
   .get("/search/couple/:bname&:gname", getCoupleByName)
 
   //how can I get the spefic information if it will bring all the info in a bloc?
