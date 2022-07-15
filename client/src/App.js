@@ -4,7 +4,6 @@ import Home from "./Home";
 import FindCouple from "./FindCouple";
 import Header from "./Header";
 import SignIn from "./SignIn";
-import MyAccount from "./MyAccount";
 import Footer from "./Footer";
 import CoupleDetails from "./CoupleDetails";
 import Gifts from "./components/Gifts";
@@ -20,10 +19,6 @@ const App = (props) => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/myaccount">
-          <MyAccount />
-        </Route>
-
         <Route path="/signin">
           <SignIn />
         </Route>

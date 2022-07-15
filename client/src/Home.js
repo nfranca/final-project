@@ -1,17 +1,65 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import buque from "../src/assets/buque.jpeg";
+import { UserContext } from "./UserContext";
 
 const Home = () => {
+  const { userModal, users, setUser, setUserModal } = useContext(UserContext);
+  console.log(userModal);
   return (
     <>
       <BackgroundImg>
         {/* <img src="https://wallpaper.dog/large/20521569.jpg" /> */}
         <img src={buque} />
       </BackgroundImg>
+      {userModal && (
+        <StyledModal>
+          <p>Please select one of the following</p>
+          <button
+            onClick={() => {
+              setUserModal(false);
+              setUser({ ...users, guests: true });
+            }}
+          >
+            {" "}
+            Guest{" "}
+          </button>
+          <button
+            onClick={() => {
+              setUserModal(false);
+              setUser({ ...users, couple: true });
+            }}
+          >
+            {" "}
+            Couple{" "}
+          </button>
+        </StyledModal>
+      )}
     </>
   );
 };
 
+const StyledModal = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 30%;
+  height: 30%;
+  background-color: #e6adad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    cursor: pointer;
+    margin-left: 2rem;
+    padding: 1rem 2rem;
+    background: lightblue;
+    border: none;
+    border-radius: 2rem;
+  }
+`;
 const BackgroundImg = styled.div`
   width: 90%;
   margin: 0rem auto;
