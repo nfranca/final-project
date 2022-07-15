@@ -124,7 +124,7 @@ const StyledSingleCoupleComponent = styled.div`
   left: 50%;
   padding: 2rem;
   cursor: pointer;
-  border: 2px solid darkblue;
+  border: 2px solid #bba14f;
   border-radius: 1rem;
 `;
 const StyledSearch = styled.div`

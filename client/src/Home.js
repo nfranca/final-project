@@ -47,7 +47,7 @@ const StyledModal = styled.div`
   transform: translateX(-50%);
   width: 30%;
   height: 30%;
-  background-color: #e6adad;
+  background-color: #f5eded;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +55,8 @@ const StyledModal = styled.div`
     cursor: pointer;
     margin-left: 2rem;
     padding: 1rem 2rem;
-    background: lightblue;
+    background: #bba14f;
+    color: white;
     border: none;
     border-radius: 2rem;
   }

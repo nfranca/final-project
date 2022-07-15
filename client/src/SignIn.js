@@ -355,7 +355,9 @@ const StyledModal = styled.div`
   transform: translateX(-50%);
   width: 30%;
   height: 30%;
-  background-color: #e6adad;
+  background-color: #f5eded;
+  color: #bba14f;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;

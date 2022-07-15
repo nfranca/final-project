@@ -46,7 +46,7 @@ const Gifts = () => {
     <>
       <Wrapper modal={modal}>
         <div>
-          <p>Our flight 100$</p>
+          <p>Our Flight 100$</p>
           <img src={flight} alt="" />
           <div className="buy">
             <span>{giftcount.flight}</span>
@@ -70,7 +70,7 @@ const Gifts = () => {
         </div>
 
         <div>
-          <p>Our hotel 200$</p>
+          <p>Our Hotel 200$</p>
           <img src={hotel} alt="" />
           <div className="buy">
             <span>{giftcount.hotel}</span>{" "}
@@ -93,7 +93,7 @@ const Gifts = () => {
           </div>
         </div>
         <div>
-          <p>Our spa 50$</p>
+          <p>Our SPA 50$</p>
           <img src={spa} alt="" />
           <div className="buy">
             <span>{giftcount.spa}</span>
@@ -116,19 +116,19 @@ const Gifts = () => {
           </div>
         </div>
         <form onSubmit={submitHandler}>
-          <span>total amount {totalA}</span>
+          <span>Total Amount $ {totalA}</span>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Card holder's name"
+            placeholder="Card Holder's Name"
             onChange={(e) => {
               setCardData({ ...cardData, name: e.target.value });
             }}
           />
           <input
             type="text"
-            placeholder="Card nmber"
+            placeholder="Card Number"
             onChange={(e) => {
               setCardData({ ...cardData, cardNumber: e.target.value });
             }}
@@ -152,7 +152,7 @@ const Gifts = () => {
             {" "}
             X{" "}
           </button>
-          <p>Thanks for your gift</p>
+          <p>Thank you for your gift ♡ </p>
         </StyledModal>
       )}
     </>
@@ -163,13 +163,14 @@ const Wrapper = styled.div`
   width: 80%;
   height: 70vh;
   display: flex;
-  border: 2px solid red;
+  border: 2px solid #bba14f;
+  border-radius: 1rem;
   justify-content: space-between;
   align-items: flex-start;
   margin: 0rem auto;
   padding: 2rem;
   position: relative;
-  background-color: ${(props) => (props.modal ? "gray" : null)};
+  background-color: ${(props) => (props.modal ? "white" : null)};
   opacity: ${(props) => (props.modal ? "0.2" : null)};
 
   img {
@@ -190,11 +191,11 @@ const Wrapper = styled.div`
     }
     button {
       text-align: center;
-      color: darkgreen;
+      color: black;
       padding: 0.4rem 0.7rem;
       font-size: 1.2rem;
       background: transparent;
-      border: 1px solid lightblue;
+      border: 1px solid #bba14f;
       border-radius: 0.3rem;
       cursor: pointer;
       margin-left: 1rem;
@@ -207,7 +208,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     position: absolute;
     bottom: 0;
-    border: 1px solid gold;
+    border: 1px solid #bba14f;
     border-radius: 0.4rem;
     padding: 2rem 4rem;
     left: 50%;
@@ -217,7 +218,7 @@ const Wrapper = styled.div`
       padding: 1rem;
       margin-top: 1rem;
 
-      border: 1px solid lightgray;
+      border: 1px solid #bba14f;
       border-radius: 0.3rem;
     }
     button {
@@ -225,14 +226,14 @@ const Wrapper = styled.div`
       margin-top: 1rem;
       border: 1px solid lightgray;
       border-radius: 0.3rem;
-      background: lightblue;
-      color: black;
+      background: #bba14f;
+      color: white;
       font-size: 1.2rem;
       cursor: pointer;
       &:disabled {
         cursor: not-allowed;
-        background-color: gray;
-        color: black;
+        background-color: lightgray;
+        color: white;
       }
     }
   }
@@ -246,7 +247,9 @@ const StyledModal = styled.div`
   transform: translateX(-50%);
   width: 30%;
   height: 30%;
-  background-color: #e6adad;
+  background-color: #f5eded;
+  font-size: 2rem;
+  color: #bba14f;
   display: flex;
   justify-content: center;
   align-items: center;

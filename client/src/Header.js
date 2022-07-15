@@ -1,7 +1,6 @@
 //import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "./assets/iweddinglogo.jpeg";
@@ -128,11 +127,12 @@ const StyledUser = styled.div`
 `;
 
 const StyledSingOut = styled.button`
-  background-color: lightblue;
+  background-color: #bba14f;
+  color: white;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
-  border-radius: 0.3rem;
+  border-radius: 0.4rem;
   cursor: pointer;
 `;
 

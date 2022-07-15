@@ -22,24 +22,24 @@ const CoupleDetails = () => {
       {coupleDetails ? (
         <Wrapper>
           <div className="info">
-            <p>Our couple</p>
+            <p>Couple</p>
             <img src={coupleDetails.imageUrl} alt="" />
-            <h3>brideFirstName: {coupleDetails.brideFirstName}</h3>
-            <h3>groomFirstName: {coupleDetails.groomFirstName}</h3>
+            <h3>Bride: {coupleDetails.brideFirstName}</h3>
+            <h3>Groom: {coupleDetails.groomFirstName}</h3>
           </div>
           <div className="info">
-            <p>cerimonyPlace</p>
-            <h3>cerimonyPlace: {coupleDetails.cerimonyPlace}</h3>
-            <h3>cerimonyAddress: {coupleDetails.cerimonyAddress}</h3>
-            <h3>cerimonyDate: {coupleDetails.cerimonyDate}</h3>
-            <h3>cerimonyTime: {coupleDetails.cerimonyTime}</h3>
+            <p>Cerimony</p>
+            <h3>Place: {coupleDetails.cerimonyPlace}</h3>
+            <h3>Address: {coupleDetails.cerimonyAddress}</h3>
+            <h3>Date: {coupleDetails.cerimonyDate}</h3>
+            <h3>Time: {coupleDetails.cerimonyTime}</h3>
           </div>
           <div className="info">
-            <p>partyPlace</p>
-            <h3>partyPlace: {coupleDetails.partyPlace}</h3>
-            <h3>partyAddress: {coupleDetails.partyAddress}</h3>
-            <h3>partyDate: {coupleDetails.partyDate}</h3>
-            <h3>partyTime: {coupleDetails.partyTime}</h3>
+            <p>Party</p>
+            <h3>Place: {coupleDetails.partyPlace}</h3>
+            <h3>Address: {coupleDetails.partyAddress}</h3>
+            <h3>Date: {coupleDetails.partyDate}</h3>
+            <h3>Time: {coupleDetails.partyTime}</h3>
           </div>
 
           <button
@@ -63,7 +63,7 @@ const CoupleDetails = () => {
 const Wrapper = styled.div`
   width: 80%;
   height: 60vh;
-  border: 2px solid red;
+  border: 2px solid #bba14f;
   border-radius: 6rem;
   padding: 2rem;
   margin: 0rem auto;
@@ -75,16 +75,16 @@ const Wrapper = styled.div`
     position: absolute;
     bottom: 0;
     padding: 1rem 2rem;
-    background: transparent;
-    border: 3px solid pink;
-    color: green;
+    background: #bba14f; //transparent
+    border: 3px solid #bba14f;
+    color: white;
     font-size: 1.2rem;
     border-radius: 1rem;
     margin-bottom: 2rem;
     cursor: pointer;
     &:hover {
-      color: pink;
-      background: green;
+      color: #bba14f;
+      background: white;
     }
   }
   img {
@@ -105,7 +105,7 @@ const Wrapper = styled.div`
     p {
       font-size: 2rem;
       font-weight: bold;
-      color: gold;
+      color: #bba14f;
     }
   }
 `;
