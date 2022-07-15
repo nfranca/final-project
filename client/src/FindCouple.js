@@ -92,6 +92,7 @@ const FindCouple = () => {
                   partyAddress={couple.partyAddress}
                   partyDate={couple.partyDate}
                   partyTime={couple.partyTime}
+                  imageUrl={couple.imageUrl}
                 />
               </StyledSingleCoupleComponent>
             );
@@ -104,28 +105,32 @@ const FindCouple = () => {
 const BackgroundImg = styled.div`
   overflow-y: hidden;
   height: 70vh;
-  width: 96vw;
+  width: 90vw;
+  margin: 0rem auto;
   p {
     margin-right: 10px;
   }
 
   img {
     margin: 0rem auto;
-    width: 100vw;
+    width: 90vw;
     height: 80vh;
   }
 `;
 
 const StyledSingleCoupleComponent = styled.div`
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 50%;
   padding: 2rem;
+  cursor: pointer;
+  border: 2px solid darkblue;
+  border-radius: 1rem;
 `;
 const StyledSearch = styled.div`
   position: fixed;
   top: 20%;
-  left: 50%;
+  left: 60%;
   padding: 2rem;
 
   input {

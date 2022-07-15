@@ -32,12 +32,15 @@ const Footer = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 10vh;
-
+  height: 5vh;
+  position: absolute;
+  bottom: 0;
+  padding: 2rem 0rem;
+  width: 100%;
   div {
     padding: 0rem 6rem;
     a {

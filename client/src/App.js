@@ -6,8 +6,8 @@ import Header from "./Header";
 import SignIn from "./SignIn";
 import MyAccount from "./MyAccount";
 import Footer from "./Footer";
-import Confirmation from "./components/Confirmation";
 import CoupleDetails from "./CoupleDetails";
+import Gifts from "./components/Gifts";
 // import Auth0ProviderWithHistory from "./Auth0Provider";
 
 const App = (props) => {
@@ -20,19 +20,20 @@ const App = (props) => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/myaccount">
+        <Route path="/myaccount">
           <MyAccount />
         </Route>
-        <Route exact path="/confirmation">
-          <Confirmation />
-        </Route>
-        <Route exact path="/signin">
+
+        <Route path="/signin">
           <SignIn />
         </Route>
-        <Route exact path="/findcouple">
+        <Route path="/findcouple">
           <FindCouple />
         </Route>
-        <Route exact path="/coupledetails/:coupleId">
+        <Route exact path="/coupledetails/:coupleId/gifts">
+          <Gifts />
+        </Route>
+        <Route path="/coupledetails/:coupleId">
           <CoupleDetails />
         </Route>
       </Switch>

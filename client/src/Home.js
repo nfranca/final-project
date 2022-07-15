@@ -5,25 +5,25 @@ const Home = () => {
   return (
     <>
       <BackgroundImg>
-        {/* <p>The right website for your wedding</p> */}
-        <div>
-          {/* <img src="https://wallpaper.dog/large/20521569.jpg" /> */}
-          <img src={buque} />
-        </div>
+        {/* <img src="https://wallpaper.dog/large/20521569.jpg" /> */}
+        <img src={buque} />
       </BackgroundImg>
     </>
   );
 };
 
 const BackgroundImg = styled.div`
+  width: 90%;
+  margin: 0rem auto;
+  text-align: center;
+
   p {
     margin-right: 10px;
   }
 
   img {
-    width: 96vw;
-    height: 75vh;
-    background-size: cover;
+    width: 100%;
+    height: 79vh;
   }
 `;
 

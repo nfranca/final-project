@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import crown from "./assets/golden-crown.jpeg";
 import Axios from "axios";
+import { useHistory } from "react-router-dom";
 const { v4: uuidv4 } = require("uuid");
 
 const SignIn = () => {
@@ -31,16 +31,14 @@ const SignIn = () => {
 
   const [formData, setFormData] = useState(initalState);
   const [uploadedImage, setUploadedImage] = useState("");
-
+  const [modal, setModal] = useState(false);
   const updateInput = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
   const history = useHistory();
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -70,229 +68,216 @@ const SignIn = () => {
             if (data.status !== 200) {
               console.log("couple not added!");
             } else {
-              history.push("/confirmed");
+              setModal(true);
             }
           });
       });
-    // .then(() => {
-    //   fetch("/accountcreation", {
-    //     method: "POST",
-    //     body: JSON.stringify({ ...formData, coupleId: uuidv4() }),
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       if (data.status !== 200) {
-    //         console.log("couple not added!");
-    //       } else {
-    //         history.push("/confirmed");
-    //       }
-    //     });
-    // });
   };
 
-  // const uploadHandler = () => {
-  //   const formData = new FormData();
-  //   formData.append("file", uploadedImage[0]);
-  //   formData.append("upload_preset", "project");
-  //   fetch("https://api.cloudinary.com/v1_1/nfranca/image/upload", {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setFormData({ ...formData, imageUrl: data.secure_url });
-  //     });
-  // };
-
   return (
-    <Wrapper>
-      <form onSubmit={handleSubmit}>
-        <div className="asd">
-          <p>About the Couple...</p>
-          <input
-            type="text"
-            name="brideFirstName"
-            placeholder="Bride First Name"
-            onChange={(e) => {
-              updateInput(e);
+    <>
+      <Wrapper>
+        <form onSubmit={handleSubmit}>
+          <div className="asd">
+            <p>About the Couple...</p>
+            <input
+              type="text"
+              name="brideFirstName"
+              placeholder="Bride First Name"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.brideFirstName}
+            />
+            <input
+              type="text"
+              name="brideLastName" // todo add these to all all inputs shold have name
+              placeholder="Bride Last Name"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.brideLastName}
+            />
+            <input
+              type="text"
+              name="groomFirstName"
+              placeholder="Groom First Name"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.groomFirstName}
+            />
+            <input
+              type="text"
+              name="groomLastName"
+              placeholder="Groom Last Name"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.groomLastName}
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.address}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.email}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.password}
+            />
+            <input
+              type="date"
+              name="weddingDate"
+              placeholder="Wedding Date"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.weddingDate} // I don't think we need it here, we already have it in the cerimony and party
+            />
+            <input
+              type="phone"
+              name="phone"
+              placeholder="Phone Number"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.phone}
+            />
+          </div>
+          <div>
+            <img src={crown} />
+          </div>
+          <div className="asd">
+            <p>About the Cerimony...</p>
+            <input
+              type="text"
+              name="cerimonyPlace"
+              placeholder="Place"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.cerimonyPlace}
+            />
+            <input
+              type="text"
+              name="cerimonyAddress"
+              placeholder="Address"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.cerimonyAddress}
+            />
+            <input
+              type="date"
+              name="cerimonyDate"
+              placeholder="Date"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.cerimonyDate}
+            />
+            <input
+              type="time"
+              name="cerimonyTime"
+              placeholder="Time"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.cerimonyTime}
+            />
+          </div>
+          <div>
+            <img src={crown} />
+          </div>
+          <div className="asd">
+            <p>About the Party...</p>
+            <input
+              type="text"
+              name="partyPlace"
+              placeholder="Place"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.partyPlace}
+            />
+            <input
+              type="text"
+              name="partyAddress"
+              placeholder="Address"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.partyAddress}
+            />
+            <input
+              type="date"
+              name="partyDate"
+              placeholder="Date"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.partyDate}
+            />
+            <input
+              type="time"
+              name="partyTime"
+              placeholder="Time"
+              onChange={(e) => {
+                updateInput(e);
+              }}
+              value={formData.partyTime}
+            />
+          </div>
+          <div className="confirm">
+            <label htmlFor="">Upload the avatart please!</label>
+            <input
+              type="file"
+              onChange={(e) => {
+                setUploadedImage(e.target.files);
+              }}
+            />
+            {Object.values(formData).includes("") ? (
+              <button disabled>Confirm</button>
+            ) : (
+              <button>Confirm</button>
+            )}
+          </div>
+        </form>
+      </Wrapper>
+
+      {modal && (
+        <StyledModal>
+          <button
+            onClick={() => {
+              setModal(false);
+              history.push("/");
             }}
-            value={formData.brideFirstName}
-          />
-          <input
-            type="text"
-            name="brideLastName" // todo add these to all all inputs shold have name
-            placeholder="Bride Last Name"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.brideLastName}
-          />
-          <input
-            type="text"
-            name="groomFirstName"
-            placeholder="Groom First Name"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.groomFirstName}
-          />
-          <input
-            type="text"
-            name="groomLastName"
-            placeholder="Groom Last Name"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.groomLastName}
-          />
-          <input
-            type="text"
-            name="address"
-            placeholder="Address"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.address}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.email}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.password}
-          />
-          <input
-            type="date"
-            name="weddingDate"
-            placeholder="Wedding Date"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.weddingDate} // I don't think we need it here, we already have it in the cerimony and party
-          />
-          <input
-            type="phone"
-            name="phone"
-            placeholder="Phone Number"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.phone}
-          />
-        </div>
-        <div>
-          <img src={crown} />
-        </div>
-        <div className="asd">
-          <p>About the Cerimony...</p>
-          <input
-            type="text"
-            name="cerimonyPlace"
-            placeholder="Place"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.cerimonyPlace}
-          />
-          <input
-            type="text"
-            name="cerimonyAddress"
-            placeholder="Address"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.cerimonyAddress}
-          />
-          <input
-            type="date"
-            name="cerimonyDate"
-            placeholder="Date"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.cerimonyDate}
-          />
-          <input
-            type="time"
-            name="cerimonyTime"
-            placeholder="Time"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.cerimonyTime}
-          />
-        </div>
-        <div>
-          <img src={crown} />
-        </div>
-        <div className="asd">
-          <p>About the Party...</p>
-          <input
-            type="text"
-            name="partyPlace"
-            placeholder="Place"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.partyPlace}
-          />
-          <input
-            type="text"
-            name="partyAddress"
-            placeholder="Address"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.partyAddress}
-          />
-          <input
-            type="date"
-            name="partyDate"
-            placeholder="Date"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.partyDate}
-          />
-          <input
-            type="time"
-            name="partyTime"
-            placeholder="Time"
-            onChange={(e) => {
-              updateInput(e);
-            }}
-            value={formData.partyTime}
-          />
-          <input
-            type="file"
-            onChange={(e) => {
-              setUploadedImage(e.target.files);
-            }}
-          />
-        </div>
-        {Object.values(formData).includes("") ? (
-          <button disabled>Confirm</button>
-        ) : (
-          <button>Confirm</button>
-        )}
-      </form>
-    </Wrapper>
+          >
+            {" "}
+            X{" "}
+          </button>
+          <p>Thank you for your registration</p>
+        </StyledModal>
+      )}
+    </>
   );
 };
 
@@ -308,6 +293,21 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .confirm {
+    display: inline;
+    margin: 0rem 4rem;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    input {
+      width: 91%;
+    }
   }
   .asd {
     display: inline;
@@ -347,79 +347,24 @@ const Wrapper = styled.div`
   }
 `;
 
+const StyledModal = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 30%;
+  height: 30%;
+  background-color: #e6adad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+`;
+
 export default SignIn;
-
-//send reservation to backend
-
-// const coRegistration = () => {
-//   const history = useHistory();
-//   const coupleRegistration = {
-// weedingDate: "",
-// brideFirstName: "",
-// brideLastName: "",
-// groomFirstName: "",
-// groomLastName: "",
-// coupleEmail: "",
-// phone: "",
-// address: "",
-// password: "",
-//   };
-
-// const ceRegistration = () => {
-//   const history = useHistory();
-//   const cerimonyRegistration = {
-// coupleEmail: "",
-// place: "",
-// address: "",
-// date: "",
-// time: "",
-//   };
-
-// const paRegistration = () => {
-//   const history = useHistory();
-//   const partyRegistration = {
-// coupleEmail: "",
-// place: "",
-// address: "",
-// date: "",
-// time: "",
-//   };
-
-//   const { selectedSeats, selectedFlight, setReservation } =
-//     useContext(FlightContext);
-//   const [reservationData, setReservationData] = useState(initialReservation);
-
-// selectedSeats.map((seat) => {
-//   const reservationObject = {
-//     id: uuidv(),
-//     flight: selectedFlight,
-//     seat: seat,
-//     firstName: reservationData.firstName,
-//     lastName: reservationData.lastName,
-//     email: reservationData.email,
-//   };
-//   allReservations.push(reservationObject);
-
-// fetch("/api/add-reservation", {
-//   method: "POST",
-//   body: JSON.stringify(reservationObject),
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json",
-//   },
-// })
-//   .then((res) => res.json())
-//   .then((data) => {
-//     if (data.status !== 200) {
-//       console.log("reservation not added!");
-//     } else {
-//       history.push("/confirmed");
-//       localStorage.setItem(
-//         "reservation",
-//         JSON.stringify(reservationObject)
-//       );
-//       setReservation(reservationObject);
-//     }
-//   });
-// });
-// };
